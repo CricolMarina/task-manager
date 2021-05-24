@@ -5,9 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.stefanini.taskmanager.command.AbstractCommand;
 import com.stefanini.taskmanager.command.Command;
-import com.stefanini.taskmanager.service.TasksService;
 import com.stefanini.taskmanager.service.UserService;
-import com.stefanini.taskmanager.service.impl.UserServiceImpl;
 
 public class ShowAllUsersCommand extends AbstractCommand implements Command{
 	

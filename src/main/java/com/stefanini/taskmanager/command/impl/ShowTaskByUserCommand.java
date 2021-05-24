@@ -5,9 +5,8 @@ import org.apache.logging.log4j.Logger;
 
 import com.stefanini.taskmanager.command.AbstractCommand;
 import com.stefanini.taskmanager.command.Command;
-import com.stefanini.taskmanager.command.utils.StrUtil;
+import com.stefanini.taskmanager.command.utils.StringUtil;
 import com.stefanini.taskmanager.service.TasksService;
-import com.stefanini.taskmanager.service.impl.TasksServiceImpl;
 
 public class ShowTaskByUserCommand extends AbstractCommand implements Command{
 	
@@ -32,7 +31,8 @@ public class ShowTaskByUserCommand extends AbstractCommand implements Command{
 	 */
 	public void execute(String[] args) {
 		logger.info("Executing showTaskByUser command ");
-		taskService.showTaskByUser(StrUtil.getSubtrByStr(args[1]));
+		String userName = StringUtil.getSubtringByString(args[1]);
+		taskService.showTaskByUser(userName);
 		logger.info("ShowTaskByUser command executed");
 
 	}

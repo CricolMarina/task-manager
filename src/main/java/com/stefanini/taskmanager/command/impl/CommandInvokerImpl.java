@@ -10,10 +10,9 @@ import com.stefanini.taskmanager.command.Command;
 import com.stefanini.taskmanager.command.CommandInvoker;
 
 public class CommandInvokerImpl implements CommandInvoker{
+	
 	private static final Logger logger = LogManager.getLogger(CommandInvokerImpl.class);
-
 	private final String NAME = "CommandInvoker"; 
-
 	private static CommandInvokerImpl commandInvoker;
 	private List<Command> commandList = new ArrayList<Command>();
 	
@@ -34,7 +33,6 @@ public class CommandInvokerImpl implements CommandInvoker{
 	 * This method is used to add a command
 	 * @param command
 	 */
-	
 	public void addCommand(Command command) {
 		commandList.add(command);
 	}
@@ -42,7 +40,6 @@ public class CommandInvokerImpl implements CommandInvoker{
 	/**
 	 * This method is used to execute a command
 	 */
-
 	public void execute(String [] args) {
 		boolean hasFound=false;
 		if(args.length==0) {
