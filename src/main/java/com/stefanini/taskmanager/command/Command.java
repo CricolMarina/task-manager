@@ -10,4 +10,4 @@ public interface Command {
 	 * This method is used to execute a command
 	 */
 	void execute(String [] args);
-}
+	}

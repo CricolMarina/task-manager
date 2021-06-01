@@ -6,4 +6,4 @@ public interface CommandInvoker extends Command{
 	 * @param command
 	 */
 	void addCommand(Command command);
-}
+	}

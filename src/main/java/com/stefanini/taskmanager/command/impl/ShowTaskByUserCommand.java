@@ -34,6 +34,5 @@ public class ShowTaskByUserCommand extends AbstractCommand implements Command{
 		String userName = StringUtil.getSubtringByString(args[1]);
 		taskService.showTaskByUser(userName);
 		logger.info("ShowTaskByUser command executed");
-
+		}
 	}
-}

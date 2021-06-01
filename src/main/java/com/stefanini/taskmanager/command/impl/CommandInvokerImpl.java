@@ -41,22 +41,27 @@ public class CommandInvokerImpl implements CommandInvoker{
 	 * This method is used to execute a command
 	 */
 	public void execute(String [] args) {
+		//set false value for hasFound variable
 		boolean hasFound=false;
+		//check if there is a command to execute
 		if(args.length==0) {
 			logger.info("Error! No command to execute!");
 	        return;
 		}
+		//find command in the commandList
 		for (Command cmd : commandList) {
 			String commandName = args[0].substring(1);
+			//check if the name of command has been found in command list
 			if (cmd.getName().equals(commandName)) {
 				hasFound=true;
 				cmd.execute(args);
 				continue;
-			} 
-		}
+				} 
+			}
+		//return error message if command has not been found in command list
 		 	if (!hasFound) {
 		 		logger.info("Error! Wrong command ! ");
-		}
-	}
-}	
+		 		}
+		 	}
+	}	
 
