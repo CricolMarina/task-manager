@@ -8,6 +8,11 @@ public interface Command {
 	
 	/**
 	 * This method is used to execute a command
+	 * @throws NoSuchFieldException 
+	 * @throws IllegalAccessException 
+	 * @throws IllegalArgumentException 
+	 * @throws SecurityException 
+	 * @throws  
 	 */
-	void execute(String [] args);
+	void execute(String [] args) ;
 	}

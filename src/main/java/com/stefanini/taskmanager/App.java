@@ -22,7 +22,7 @@ import com.stefanini.taskmanager.service.impl.UserServiceImpl;
 public class App {
 	private static final Logger logger = LogManager.getLogger(App.class);
 
-    public static void main( String[] args ){
+    public static void main( String[] args ) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
     	logger.info("Starting application");
     	AbstractFactoryUser user = new UserDAOFactoryHibernate();
     	UserService userService = new UserServiceImpl(user);
