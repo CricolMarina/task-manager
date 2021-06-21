@@ -49,12 +49,16 @@ public class AddTaskToUserCommand extends AbstractCommand implements Command {
 			
 			task.setUser(user);
 			taskService.addTask(task);
-			} 
+		} 
 		else {
 			logger.info("No task for this user was added ");
-			}
-		logger.info(" AddTaskToUser command executed");
 		}
+		logger.info(" AddTaskToUser command executed");
 	}
+	
+	public String[] getArgs() {
+		return getArgs();
+	}
+}
 
 

@@ -1,5 +1,7 @@
 package com.stefanini.taskmanager.command.impl;
 
+import java.util.Scanner;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -35,7 +37,7 @@ public class AddTaskCommand extends AbstractCommand implements Command{
 	 * This method is used to execute addTask command
 	 */
 	public void execute(String[] args) {
-		logger.info("Executing addTask command ");
+		System.out.println("Executing addTask command ");
 		String userName = StringUtil.getSubtringByString(args[1]);
 		String taskTitle = StringUtil.getSubtringByString(args [2]);
 		String taskDescription = StringUtil.getSubtringByString(args[3]);
@@ -48,10 +50,25 @@ public class AddTaskCommand extends AbstractCommand implements Command{
 				task.setUser(user);
 				//add task to the task list
 				taskService.addTask(task);
-				logger.info("New task added for user " + user.getUsername());
+				System.out.println("New task added for user " + user.getUsername());
 				} 
 			} catch (NullPointerException e) {
-				logger.info("No user with this username!");
+				System.out.println("No user with this username!");
 			}
 		}
+	public  String[] getArgs() {
+    	System.out.println("Introduce username :" );
+    	Scanner scanner = new Scanner(System.in);
+    	String username = scanner.nextLine();
+    	System.out.println("Introduce task title :" );
+    	String taskTitle = scanner.nextLine();
+    	System.out.println("Introduce task description :" );
+    	String taskDesription = scanner.nextLine();
+    	String [] args = new String[4];
+    	args[0] = "-addTask";
+    	args[1] = username;
+    	args[2] = taskTitle;
+    	args[3] = taskDesription;
+    	return args;
+    }
 	}

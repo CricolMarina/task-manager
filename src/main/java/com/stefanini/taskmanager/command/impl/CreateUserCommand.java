@@ -1,5 +1,7 @@
 package com.stefanini.taskmanager.command.impl;
 
+import java.util.Scanner;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -31,13 +33,29 @@ public class CreateUserCommand extends AbstractCommand implements Command {
 	 * This method is used to execute createUser command
 	 */
 	public void execute(String[] args) {
-		logger.info("Executing createUser command ");
-		String userName = StringUtil.getSubtringByString(args[1]);
-		String firstName = StringUtil.getSubtringByString(args[2]);
-		String lastName = StringUtil.getSubtringByString(args[3]);
-		User user = new User( userName, firstName, lastName );
-		userService.createUser(user);
-		logger.info("New user created ");
+		System.out.println("Executing createUser command ");
+		String firstName = StringUtil.getSubtringByString(args[1]);
+		String lastName = StringUtil.getSubtringByString(args[2]);
+		String userName = StringUtil.getSubtringByString(args[3]);
+		User user = new User(firstName, lastName, userName);
+		if (userService.createUser(user)!= null) { ;
+			System.out.println("New user was created");
 		}
 	}
-
+	
+	public String[] getArgs() {
+		System.out.println("Introduce firstName :" );
+		Scanner scanner = new Scanner(System.in);
+		String firstName = scanner.nextLine();
+		System.out.println("Introduce lastName : " );
+		String lastName = scanner.nextLine();
+		System.out.println("Introduce userName : " );
+		String username = scanner.nextLine();
+		String [] args = new String[4];
+		args[0]="-createUser";
+		args[1]=firstName; 
+		args[2]=lastName;
+		args[3]=username;
+		return args ;
+	}
+}

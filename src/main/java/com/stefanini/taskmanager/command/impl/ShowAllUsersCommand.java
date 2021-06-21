@@ -33,4 +33,10 @@ public class ShowAllUsersCommand extends AbstractCommand implements Command{
 		userService.showAllUsers();
 		logger.info("ShowAllUsers command executed");
 	}
+	
+	public  String[] getArgs() {
+    	String[]args = new String[1];
+    	args[0] = "-showAllUsers";
+    	return args;
+    }
 }

@@ -1,5 +1,7 @@
 package com.stefanini.taskmanager.command.impl;
 
+import java.util.Scanner;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -34,5 +36,15 @@ public class ShowTaskByUserCommand extends AbstractCommand implements Command{
 		String userName = StringUtil.getSubtringByString(args[1]);
 		taskService.showTaskByUser(userName);
 		logger.info("ShowTaskByUser command executed");
-		}
 	}
+	
+	public String[] getArgs() {
+    	System.out.println("Introduce username :" );
+    	Scanner scanner = new Scanner(System.in);
+    	String userName = scanner.nextLine();
+    	String [] args = new String[2];
+    	args[0] = "-showTasks";
+    	args[1] = userName;
+    	return args;
+    }
+}

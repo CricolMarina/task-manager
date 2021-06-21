@@ -37,6 +37,18 @@ public class CommandInvokerImpl implements CommandInvoker{
 		commandList.add(command);
 	}
 	
+	public List<Command> getCommands() {
+		return commandList;
+	}
+	
+	public Command getCommand(String name){
+		for (Command cmd : commandList) {
+			if (cmd.getName().equals(name)) {
+				return cmd;
+			}
+		} 
+		return null;
+	}
 	/**
 	 * This method is used to execute a command
 	 */
@@ -57,11 +69,15 @@ public class CommandInvokerImpl implements CommandInvoker{
 				cmd.execute(args);
 				continue;
 				} 
-			}
+		}
 		//return error message if command has not been found in command list
 		 	if (!hasFound) {
 		 		logger.info("Error! Wrong command ! ");
-		 		}
 		 	}
-	}	
+	}
+	
+	public String[] getArgs() {
+		return null;
+	}
+}	
 
