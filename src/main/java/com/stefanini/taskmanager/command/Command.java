@@ -15,4 +15,6 @@ public interface Command {
 	 * @throws  
 	 */
 	void execute(String [] args) ;
-	}
+	
+	String[] getArgs();
+}
