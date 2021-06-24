@@ -1,5 +1,6 @@
 package com.stefanini.taskmanager.command.impl;
 
+import java.util.List;
 import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
@@ -7,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.stefanini.taskmanager.command.AbstractCommand;
 import com.stefanini.taskmanager.command.Command;
+import com.stefanini.taskmanager.command.CommandExecutor;
 import com.stefanini.taskmanager.command.utils.StringUtil;
 import com.stefanini.taskmanager.domain.User;
 import com.stefanini.taskmanager.service.UserService;
@@ -43,6 +45,10 @@ public class CreateUserCommand extends AbstractCommand implements Command {
 		}
 	}
 	
+	/**
+	 * This method is used to get args for createUser command
+	 * @return args
+	 */
 	public String[] getArgs() {
 		System.out.println("Introduce firstName :" );
 		Scanner scanner = new Scanner(System.in);

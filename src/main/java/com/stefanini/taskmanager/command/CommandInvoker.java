@@ -9,8 +9,17 @@ public interface CommandInvoker extends Command{
 	 */
 	void addCommand(Command command);
 	
+	/**
+	 * This method is used to get command
+	 * @param name
+	 * @return command
+	 */
 	Command getCommand(String name);
 	
+	/**
+	 * This method is used to get command list
+	 * @return commandList
+	 */
 	List<Command> getCommands();
 }
 

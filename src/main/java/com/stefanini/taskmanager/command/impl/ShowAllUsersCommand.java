@@ -1,10 +1,13 @@
 package com.stefanini.taskmanager.command.impl;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.stefanini.taskmanager.command.AbstractCommand;
 import com.stefanini.taskmanager.command.Command;
+import com.stefanini.taskmanager.command.CommandExecutor;
 import com.stefanini.taskmanager.service.UserService;
 
 public class ShowAllUsersCommand extends AbstractCommand implements Command{
@@ -34,6 +37,10 @@ public class ShowAllUsersCommand extends AbstractCommand implements Command{
 		logger.info("ShowAllUsers command executed");
 	}
 	
+	/**
+	 * This method is used to get args for showAllUsers command
+	 * @return args
+	 */
 	public  String[] getArgs() {
     	String[]args = new String[1];
     	args[0] = "-showAllUsers";

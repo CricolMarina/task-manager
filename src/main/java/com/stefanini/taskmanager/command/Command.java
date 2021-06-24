@@ -1,5 +1,7 @@
 package com.stefanini.taskmanager.command;
 
+import java.util.List;
+
 public interface Command {
 	/**
 	 * This method is used to get name of the command

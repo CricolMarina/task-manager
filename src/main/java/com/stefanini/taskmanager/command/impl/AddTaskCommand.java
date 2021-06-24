@@ -56,19 +56,22 @@ public class AddTaskCommand extends AbstractCommand implements Command{
 				System.out.println("No user with this username!");
 			}
 		}
+	/**
+	 * This method is used to get args for addTask command
+	 */
 	public  String[] getArgs() {
     	System.out.println("Introduce username :" );
     	Scanner scanner = new Scanner(System.in);
-    	String username = scanner.nextLine();
+    	String userName = scanner.nextLine();
     	System.out.println("Introduce task title :" );
     	String taskTitle = scanner.nextLine();
     	System.out.println("Introduce task description :" );
     	String taskDesription = scanner.nextLine();
     	String [] args = new String[4];
     	args[0] = "-addTask";
-    	args[1] = username;
+    	args[1] = userName;
     	args[2] = taskTitle;
     	args[3] = taskDesription;
     	return args;
     }
-	}
+}

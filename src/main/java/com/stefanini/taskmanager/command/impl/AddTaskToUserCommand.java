@@ -1,10 +1,13 @@
 package com.stefanini.taskmanager.command.impl;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.stefanini.taskmanager.command.AbstractCommand;
 import com.stefanini.taskmanager.command.Command;
+import com.stefanini.taskmanager.command.CommandExecutor;
 import com.stefanini.taskmanager.command.utils.StringUtil;
 import com.stefanini.taskmanager.domain.Task;
 import com.stefanini.taskmanager.domain.User;
@@ -56,6 +59,10 @@ public class AddTaskToUserCommand extends AbstractCommand implements Command {
 		logger.info(" AddTaskToUser command executed");
 	}
 	
+	/**
+	 * This method is used to get args for addTask command
+	 * @return args
+	 */
 	public String[] getArgs() {
 		return getArgs();
 	}
