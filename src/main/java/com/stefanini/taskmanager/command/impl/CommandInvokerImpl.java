@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.stefanini.taskmanager.command.Command;
-import com.stefanini.taskmanager.command.CommandExecutor;
 import com.stefanini.taskmanager.command.CommandInvoker;
 
 public class CommandInvokerImpl implements CommandInvoker{
@@ -15,9 +15,10 @@ public class CommandInvokerImpl implements CommandInvoker{
 	private static final Logger logger = LogManager.getLogger(CommandInvokerImpl.class);
 	private final String NAME = "CommandInvoker"; 
 	private static CommandInvokerImpl commandInvoker;
-	private List<Command> commandList = new ArrayList<Command>();
 	
-	private CommandInvokerImpl() {}
+	@Autowired private List<Command> commandList = new ArrayList<Command>();
+	
+	public CommandInvokerImpl() {}
 	
 	public static CommandInvokerImpl getInstance() {
 		if(commandInvoker == null) {
@@ -69,7 +70,7 @@ public class CommandInvokerImpl implements CommandInvoker{
 				hasFound=true;
 				cmd.execute(args);
 				continue;
-				} 
+			} 
 		}
 		//return error message if command has not been found in command list
 		 	if (!hasFound) {

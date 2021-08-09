@@ -1,14 +1,13 @@
 package com.stefanini.taskmanager.command.impl;
 
-import java.util.List;
 import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.stefanini.taskmanager.command.AbstractCommand;
 import com.stefanini.taskmanager.command.Command;
-import com.stefanini.taskmanager.command.CommandExecutor;
 import com.stefanini.taskmanager.command.utils.StringUtil;
 import com.stefanini.taskmanager.service.TasksService;
 
@@ -16,10 +15,15 @@ public class ShowTaskByUserCommand extends AbstractCommand implements Command{
 	
 	private static final Logger logger = LogManager.getLogger(ShowTaskByUserCommand.class);
 	private static ShowTaskByUserCommand showTaskByUserCommand;
+	@Autowired
 	private TasksService taskService;
 	
-	private ShowTaskByUserCommand(TasksService taskService) {
+	public ShowTaskByUserCommand() {
 		super("showTasks");
+	}
+	
+	private ShowTaskByUserCommand(TasksService taskService) {
+		this();
 		this.taskService=taskService;
 	}
 	

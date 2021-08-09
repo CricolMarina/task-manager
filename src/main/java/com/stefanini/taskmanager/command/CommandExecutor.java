@@ -1,7 +1,6 @@
 package com.stefanini.taskmanager.command;
 
 public class CommandExecutor extends Thread {
-	
 	private CommandInvoker commandInvoker;
 	private String[] params;
 	private Thread depedendThread;

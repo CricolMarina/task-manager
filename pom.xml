@@ -13,19 +13,74 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  
+  <build>
+	  <plugins>
+<!-- 	    <plugin> -->
+<!-- 	      Build an executable JAR -->
+<!-- 	      <groupId>org.apache.maven.plugins</groupId> -->
+<!-- 	      <artifactId>maven-jar-plugin</artifactId> -->
+<!-- 	      <version>3.1.0</version> -->
+<!-- 	      <configuration> -->
+<!-- 	        <archive> -->
+<!-- 	          <manifest> -->
+<!-- 	            <addClasspath>true</addClasspath> -->
+<!-- 	            <classpathPrefix>lib/</classpathPrefix> -->
+<!-- 	            <mainClass>com.stefanini.taskmanager.AppSpring</mainClass> -->
+<!-- 	          </manifest> -->
+<!-- 	        </archive> -->
+<!-- 	      </configuration> -->
+<!-- 	    </plugin> -->
+		<plugin>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-maven-plugin</artifactId>
+           <configuration>
+               <fork>true</fork>
+               <mainClass>com.stefanini.taskmanager.AppSpring</mainClass>
+           </configuration>
+             <executions>
+               <execution>
+                 <goals>
+                   <goal>repackage</goal>
+                 </goals>
+               </execution>
+           </executions>
+        </plugin>
+		<plugin>
+	      <artifactId>maven-assembly-plugin</artifactId>
+	      <configuration>
+	        <archive>
+	          <manifest>
+	            <mainClass>com.stefanini.taskmanager.AppSpring</mainClass>
+	          </manifest>
+	        </archive>
+	        <descriptorRefs>
+	          <descriptorRef>jar-with-dependencies</descriptorRef>
+	        </descriptorRefs>
+	      </configuration>
+	    </plugin>
+	    
+	  </plugins>
+	</build>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
+      <version>4.13</version>
     </dependency>
+   
     <dependency>
       <groupId>taskmanager</groupId>
       <artifactId>taskmanager-core</artifactId>
       <version>0.0.2-SNAPSHOT</version>
     </dependency>
     
+    <dependency>
+	    <groupId>org.mockito</groupId>
+	    <artifactId>mockito-core</artifactId>
+	    <version>3.11.2</version>
+	</dependency>
+	
   </dependencies>
 </project>

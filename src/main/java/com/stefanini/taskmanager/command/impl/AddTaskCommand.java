@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.stefanini.taskmanager.command.AbstractCommand;
 import com.stefanini.taskmanager.command.Command;
@@ -17,11 +18,18 @@ public class AddTaskCommand extends AbstractCommand implements Command{
 	
 	private static final Logger logger = LogManager.getLogger(AddTaskCommand.class);
 	private static AddTaskCommand addTaskCommand;
+	
+	@Autowired
 	private TasksService taskService ;
+	@Autowired
 	private UserService userService;
 
-	private AddTaskCommand(TasksService taskService, UserService userService) {
+	public AddTaskCommand() {
 		super("addTask");
+	}
+	
+	private AddTaskCommand(TasksService taskService, UserService userService) {
+		this();
 		this.taskService = taskService;
 		this.userService = userService;
 	}

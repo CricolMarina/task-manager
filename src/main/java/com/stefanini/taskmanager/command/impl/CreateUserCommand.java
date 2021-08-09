@@ -1,14 +1,13 @@
 package com.stefanini.taskmanager.command.impl;
 
-import java.util.List;
 import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.stefanini.taskmanager.command.AbstractCommand;
 import com.stefanini.taskmanager.command.Command;
-import com.stefanini.taskmanager.command.CommandExecutor;
 import com.stefanini.taskmanager.command.utils.StringUtil;
 import com.stefanini.taskmanager.domain.User;
 import com.stefanini.taskmanager.service.UserService;
@@ -17,10 +16,14 @@ public class CreateUserCommand extends AbstractCommand implements Command {
 	
 	private static final Logger logger = LogManager.getLogger(CreateUserCommand.class);
 	private static CreateUserCommand createUserCommand;
+	@Autowired
 	private UserService userService;
 	
-	private CreateUserCommand(UserService userService) {
+	public CreateUserCommand() {
 		super("createUser");
+	}
+	private CreateUserCommand(UserService userService) {
+		this();
 		this.userService=userService;
 	}
 	
@@ -40,7 +43,7 @@ public class CreateUserCommand extends AbstractCommand implements Command {
 		String lastName = StringUtil.getSubtringByString(args[2]);
 		String userName = StringUtil.getSubtringByString(args[3]);
 		User user = new User(firstName, lastName, userName);
-		if (userService.createUser(user)!= null) { ;
+		if (userService.createUser(user)!= null) { 
 			System.out.println("New user was created");
 		}
 	}
