@@ -1,5 +1,7 @@
 package selfStudy;
 
+import java.util.Scanner;
+
 public class WeightConverter implements UnitConverter {
 	
 	private double kilogram ;
@@ -12,7 +14,10 @@ public class WeightConverter implements UnitConverter {
 		return "WeightConverter [kilogram = " + kilogram + " , gram = " + gram + ", lb = " + lb + ", carat = " + carat + "]";
 	}
 
-	public void convertTo(double unit) {
+	public void convertTo() {
+		System.out.println("Please introduce the weight you want to convert : ");
+		Scanner weightScanner = new Scanner(System.in);
+		double unit = weightScanner.nextDouble();
 		kilogram = unit ;
 		gram = kilogram*1000;
 		lb = kilogram*2.205;

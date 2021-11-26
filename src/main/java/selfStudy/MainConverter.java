@@ -14,15 +14,9 @@ public class MainConverter {
 		Scanner scan = new Scanner(System.in);
 		int choice = scan.nextInt();
 		if (1==choice) {
-			System.out.println("Please introduce the distance you want to convert : ");
-			Scanner distanceScanner = new Scanner(System.in);
-			double distanceUnit = distanceScanner.nextDouble();
-			distanceConverter.convertTo(distanceUnit);
+			distanceConverter.convertTo();
 		} else if (2==choice){
-			System.out.println("Please introduce the weight you want to convert : ");
-			Scanner weightScanner = new Scanner(System.in);
-			double weightUnit = weightScanner.nextDouble();
-			weighConverter.convertTo(weightUnit);
+			weighConverter.convertTo();
 		}
 	}
 }
