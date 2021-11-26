@@ -1,5 +1,7 @@
 package selfStudy;
 
+import java.util.Scanner;
+
 public class DistanceConverter implements UnitConverter{
 	
 	private double meter ;
@@ -13,7 +15,10 @@ public class DistanceConverter implements UnitConverter{
 				+ "]";
 	}
 
-	public void convertTo(double unit) {
+	public void convertTo() {
+		System.out.println("Please introduce the distance you want to convert : ");
+		Scanner distanceScanner = new Scanner(System.in);
+		double unit = distanceScanner.nextDouble();
 		meter = unit;
 		kilometer = meter/1000;
 		yard = meter*1.094;
