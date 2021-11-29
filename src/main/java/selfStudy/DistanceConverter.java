@@ -23,6 +23,5 @@ public class DistanceConverter implements UnitConverter{
 		kilometer = meter/1000;
 		yard = meter*1.094;
 		foot = meter*3.281;
-		System.out.println(toString());
 	}
 }

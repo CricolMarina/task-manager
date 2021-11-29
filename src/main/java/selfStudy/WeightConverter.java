@@ -22,6 +22,5 @@ public class WeightConverter implements UnitConverter {
 		gram = kilogram*1000;
 		lb = kilogram*2.205;
 		carat = kilogram * 5000;
-		System.out.println(toString());
 	}
 }
