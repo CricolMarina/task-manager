@@ -10,6 +10,7 @@ public class SearchMaxLength implements MaxLentgh {
 					maxLength=strings[j].length();
 				}
 			}
-		} System.out.println("The max lenght in this array is : " + maxLength);
+		} 
+		System.out.println("The max lenght in this array is : " + maxLength);
 	}
 }
